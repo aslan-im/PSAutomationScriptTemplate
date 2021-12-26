@@ -14,6 +14,8 @@
             "",
             ""
         ],
+        "mailSubject": "",
+        "mailBody": "",
         "smtpRelay": ""
     },
     "apiConfig":{
