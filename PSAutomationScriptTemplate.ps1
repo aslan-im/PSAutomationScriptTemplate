@@ -5,15 +5,12 @@ Import-Module Logging, GraphApiRequests, Microsoft.PowerShell.SecretManagement, 
 
 #region Functions
 function Example-GraphApiFunction {
-
     [CmdletBinding()]
     param (
         [Parameter(Mandatory=$true)]
         [String]
         $ParameterName
     )
-
-    
 }
 #endregion
 
@@ -97,7 +94,6 @@ $TokenGettingCounter = 0
 $Token = $null
 do {
     ++$TokenGettingCounter
-
     try{
         Write-Log "Getting token attempt: $TokenGettingCounter"
         $Token = Get-GraphToken -AppId $ClientId -TenantID $TenantId -AppSecret $ClientSecret -ErrorAction Stop 
@@ -115,15 +111,22 @@ if ($Null -eq $Token){
     break
 }
 
-#SendEmail 
+#region SendEmail 
 $SendEmailSplat = @{
-
+    SenderUpn = $MailSender
+    Recipients = $MailRecipients 
+    CopyRecipients = $MailCCRecipients 
+    HidenRecipients = $MailBCCRecipients
+    MailSubject = ""
+    MessageBody = ""
+    AttachmentPaths = ""
+    Token = ""
+    ErrorAction = "STOP"
 }
 try{
     Send-GraphEmail @SendEmailSplat -Verbose
 }
 catch {
-    Write-Output $_.Exception | Select *
+    Write-Log -level Error $_.Exception.message
 }
-
-#TODO Check the attachment option
+#endregion
