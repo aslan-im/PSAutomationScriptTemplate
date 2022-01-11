@@ -1,11 +1,11 @@
 # GraphApiScriptsTemplate
 
-##### SYNOPSIS
+### SYNOPSIS
 
 This is a template for the Graph API scripts that can be used for the other script types as well.
 The example of the Graph function and tests for it can be found in functions directory (Pester module was used for unit tests)
 
-##### DESCRIPTION
+### DESCRIPTION
 
 This template is developed mostly for Graph API scripts. It conctains a few dependencies, such as:
 .Logging - module for logging to files or where you need. This module can be reconfigured for logging to the console, Event Veiewer and another places
@@ -23,15 +23,15 @@ Template consists of the parts described below:
 - checking and reading the vault with secrets and credential
 - main part, the script body
 
-##### INPUTS
+### INPUTS
 
 There is no input in the template
 
-##### OUTPUTS
+### OUTPUTS
 
 The output will be the log file by default
 
-##### NOTES
+### NOTES
 
 Template version: 0.1.0
 Owner: Aslan Imanalin
