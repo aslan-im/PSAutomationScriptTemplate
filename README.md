@@ -1,4 +1,4 @@
-# GraphApiScriptsTemplate
+# PSAutomationScriptTemplate
 
 ### SYNOPSIS
 
