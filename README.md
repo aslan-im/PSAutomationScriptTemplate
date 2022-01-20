@@ -8,12 +8,12 @@ The example of the Graph function and tests for it can be found in functions dir
 ### DESCRIPTION
 
 This template is developed mostly for Graph API scripts. It conctains a few dependencies, such as:  
-.Logging - module for logging to files or where you need. This module can be reconfigured for logging to the console, Event Veiewer and another places  
-.GraphApiRequests - simple module for Graph API Scripts. You just need to use 2 functions, Get-GraphToken and Invoke-GraphApiRequest  
-.Microsoft.PowerShell.SecretStore - it is Microsoft recommended module for secrets storing. More information can be got on official module page.  
-.Microsoft.PowerShell.SecretManagement - Microsoft recommended module for managing secretstore. Using this module you can create new vaults and read/write secrets  
-Template consists of the parts described below:
+- Logging - module for logging to files or where you need. This module can be reconfigured for logging to the console, Event Veiewer and another places  
+- GraphApiRequests - simple module for Graph API Scripts. You just need to use 2 functions, Get-GraphToken and Invoke-GraphApiRequest  
+- Microsoft.PowerShell.SecretStore - it is Microsoft recommended module for secrets storing. More information can be got on official module page.  
+- Microsoft.PowerShell.SecretManagement - Microsoft recommended module for managing secretstore. Using this module you can create new vaults and read/write secrets  
 
+Template consists of the parts described below:  
 - checking and importing required modules
 - internal functions
 - common variables, such as date, path to config file and etc...
@@ -34,5 +34,4 @@ The output will be the log file by default
 ### NOTES
 
 Template version: 0.1.0
-Owner: Aslan Imanalin
-Github: @aslan-im
+
