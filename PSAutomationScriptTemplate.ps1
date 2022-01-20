@@ -23,7 +23,7 @@
 .OUTPUTS
     The output will be the log file by default
 .NOTES
-    Template version: 0.1.0
+    Template version: 0.1.1
     Owner: Aslan Imanalin 
     Github: @aslan-im
 #>
