@@ -1,2 +1,5 @@
+Version: 0.1.1
+- Fixed bug with recipients objects. Instead of array of email addresses were added email addresses.
+
 Version: 0.1.0
 - Initial version has been added
