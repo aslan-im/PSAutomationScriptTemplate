@@ -63,21 +63,23 @@ function Send-GraphEmail {
         }
 
         Write-Verbose "Checking if recipients exist and theirs count"
-        if ($MailRecipients.Count -eq 1) {
+        if ($Recipients.Count -eq 1) {
             Write-Verbose "There is only 1 recipient"
-            $Recipient = [string]$MailRecipients
+            $Recipient = [string]$Recipients
             $ToRecipients = @{address = $Recipient}
             Write-Verbose "Adding recipient $Recipient to the MessageObject"
             $MessageCustomObject.Message += [ordered]@{
-                toRecipients = @{
-                    emailAddress = $ToRecipients
-                }
+                toRecipients = @(
+                    @{
+                        emailAddress = $ToRecipients
+                    }
+                )
             }
         }
-        elseif ($MailRecipients.Count -gt 1) {
-            Write-Verbose "There are more than 1 recipients. Count: $($MailRecipients.Count)"
+        elseif ($Recipients.Count -gt 1) {
+            Write-Verbose "There are more than 1 recipients. Count: $($Recipients.Count)"
             $AddressesTable = @()
-            foreach($Recipient in $MailRecipients){
+            foreach($Recipient in $Recipients){
                 Write-Verbose "Adding $Recipient to recipient list"
                 $AddressesTable += @{
                     emailAddress = @{address = $Recipient}
@@ -96,9 +98,11 @@ function Send-GraphEmail {
             $ccRecipients = @{address = $CopyRecipient}
             Write-Verbose "Adding recipient $CopyRecipient to the MessageObject"
             $MessageCustomObject.Message += [ordered]@{
-                ccRecipients = @{
-                    emailAddress = $ccRecipients
-                }
+                ccRecipients = @(
+                    @{
+                        emailAddress = $ccRecipients
+                    }
+                )
             }
         }
         elseif ($CopyRecipients.Count -gt 1) {
@@ -123,9 +127,11 @@ function Send-GraphEmail {
             $bccRecipients = @{address = $HidenRecipient}
             Write-Verbose "Adding $HidenRecipient to the MessageObject"
             $MessageCustomObject.Message += [ordered]@{
-                bccRecipients = @{
-                    emailAddress = $bccRecipients
-                }
+                bccRecipients = @(
+                    @{
+                        emailAddress = $bccRecipients
+                    }
+                )
             }
         }
         elseif ($HidenRecipients.Count -gt 1) {
