@@ -1,5 +1,6 @@
 BeforeAll{
     . $PSScriptRoot\..\functions\Send-GraphEmail.ps1
+    . $PSScriptRoot\..\functions\New-GraphEmailObject.ps1
 }
 
 Describe "Send-GraphEmail"{
@@ -116,7 +117,7 @@ Describe "Send-GraphEmail"{
                 ErrorAction = "STOP"
                 Token = $Token
             }
-            {Send-GraphEmail @FunctionSplat} |  Should -Throw -ExpectedMessage "Provided attachment path is invalid"
+            {Send-GraphEmail @FunctionSplat} |  Should -Throw -ExpectedMessage "Attachment with path $AttachmentPath4 hasn't been found*"
         }
 
         it "Returns throw. There are more than 1 attachments and they do not exist"{
@@ -132,7 +133,7 @@ Describe "Send-GraphEmail"{
                 ErrorAction = "STOP"
                 Token = $Token
             }
-            {Send-GraphEmail @FunctionSplat} |  Should -Throw -ExpectedMessage "Attachment with path $AttachmentPath4 hasn't been found! Please check the path."
+            {Send-GraphEmail @FunctionSplat} |  Should -Throw -ExpectedMessage "Attachment with path $AttachmentPath4 hasn't been found*"
         }
     }
     
