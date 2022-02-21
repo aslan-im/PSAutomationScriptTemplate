@@ -117,7 +117,7 @@ Describe "New-GraphEmailObject"{
             }
         }
 
-        it "Returns СС addresses"{
+        it "Returns СС address"{
             $MailSplat = @{
                 SenderUpn = "Sender@mail.com"
                 Recipients = "test.address@mail.com"
@@ -217,7 +217,7 @@ Describe "New-GraphEmailObject"{
             }
         }
 
-        it "Returns BСС addresses"{
+        it "Returns BСС address"{
             $MailSplat = @{
                 SenderUpn = "Sender@mail.com"
                 Recipients = "test.address@mail.com"
@@ -271,7 +271,7 @@ Describe "New-GraphEmailObject"{
             }
         }
 
-        it "Returns СС addresses"{
+        it "Returns BСС addresses"{
             $MailSplat = @{
                 SenderUpn = "Sender@mail.com"
                 Recipients = "test.address@mail.com"
@@ -323,7 +323,7 @@ Describe "New-GraphEmailObject"{
                 }
             }
         }
-        It "returns attachment info"{
+        It "Returns attachment info"{
             $MailSplat = @{
                 SenderUpn = "Sender@mail.com"
                 Recipients = "test.address@mail.com"
@@ -347,7 +347,7 @@ Describe "New-GraphEmailObject"{
             $AttachmentPath = "$TestDrive\$AttachmentName"
             
         }
-        It "returns attachment info"{
+        It "Throws because of non existing attachment"{
             $MailSplat = @{
                 SenderUpn = "Sender@mail.com"
                 Recipients = "test.address@mail.com"
@@ -413,7 +413,7 @@ Describe "New-GraphEmailObject"{
                 }
             }
         }
-        It "returns attachments info"{
+        It "Returns 3 attachments info"{
             $MailSplat = @{
                 SenderUpn = "Sender@mail.com"
                 Recipients = "test.address@mail.com"
