@@ -45,7 +45,18 @@ function Example-GraphApiFunction {
 #endregion
 
 #region CommonVariables
-$WorkingDirectory = $PSScriptRoot 
+$WorkingDirectory = Switch ($Host.name) {
+    'Visual Studio Code Host' { 
+        split-path $psEditor.GetEditorContext().CurrentFile.Path 
+    }
+    'Windows PowerShell ISE Host' {
+        Split-Path -Path $psISE.CurrentFile.FullPath
+    }
+    'ConsoleHost' {
+        $PSScriptRoot 
+    }
+}
+
 $CurrentDate = Get-Date
 $ConfigPath = "$WorkingDirectory\config\config.json"
 #endregion
